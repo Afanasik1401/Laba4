@@ -1,0 +1,22 @@
+<div class="grid-x grid-padding-x">
+<div class="large-12 cell">
+    <a href="/books" class="button">Домой</a>
+</div>
+
+    <div class="cell auto">
+     <ol>
+     <% @years.each do |year| %>
+        <% count=0 %>
+        <%@books.each do |book| %>
+          <%datearray=book.date.split("-").map { |s| s.to_i } %>
+            <% if year == datearray[0]%>
+            <% count+=1%>
+            <%end %> <%end %>
+           <% if book.format == "бумажный"%>
+     <li> <%= year %>: <a href="/books/<%= year %>"> <%= count %>   прочитанные книги </a></li>
+     <% end %>
+               <% end %>
+  
+    </ol>
+ </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="grid-x grid-padding-x">
+  
+  <div class="large-6 cell">
+    <a href="books/new" class="button">Добавить книжечку</a>
+  </div>
+  <div class="large-6 cell">
+    <a href="books/statistics" class="button">Статистика</a>
+  </div>
+  <div class="large-12 cell">
+
+    <% form({ method: :get }, { obj: @params }) do |f| %>
+      <div class="grid-x grid-padding-x">
+        <% if @params.failure? %>
+          <div class="large-12 cell callout warning">
+            <p>
+              Параметры фильтра введены неверно, данные не были отфильтрованы
+            </p>
+          </div>
+        <% end %>
+        <div class="large-6 cell">
+          <%= f.input(:format, type: :text, placeholder: 'бумажный', label: 'Формат чтения') %>
+        </div>
+        <div class="large-12 cell">
+          <%= f.button(value: 'Фильтровать', class: 'button') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="large-12 cell">
+      <table>
+     
+      <thead>
+        <tr>
+          <th>Дата</th>
+          <th>Название</th>
+          <th>Оценка</th>
+          <th>Формат чтения</th>
+        </tr>
+      </thead>
+     
+       <div class="large-12 cell">
+      <tbody>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= book.date %></td>
+            <td><%= book.author %> "<%= book.name %>"</td>
+             <td><%= book.rating %></td>
+               <td><%= book.format %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+  </div>
+</div>
+</div>

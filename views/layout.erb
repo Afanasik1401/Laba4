@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html class="no-js" lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжечки</title>
+    <link rel="stylesheet" href="/css/foundation.css">
+    <style>
+        body{background-color: #F8E0E6; color: #8A2BE2}
+    p {color:#FF1493}
+   .button {
+        background: #F5A9F2; /* Синий цвет фона */
+        color: #8A0886; /* Белые буквы */
+        /* Размер шрифта в пунктах */
+        }
+    
+    th{ background: #F6CEF5}
+   td {
+    background: #FBEFF5; /* Цвет фона ячеек */
+     padding: 5px;
+   }
+</style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <h2>Сайт с книжечками</h2>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/what-input.js"></script>
+    <script src="/js/vendor/foundation.js"></script>
+  </body>
+</html>

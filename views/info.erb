@@ -1,0 +1,43 @@
+<div class="grid-x grid-padding-x">
+<div class="large-12 cell">
+    <a href="/books" class="button">Домой</a>
+</div>
+<div class="large-12 cell">
+      <table>
+      <thead>
+        <tr>
+        <div class="large-12 cell">
+          <th>Meсяц</th>
+          <th>Количество</th>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+      <% months=[] %>
+      <% month=["январь","февраль","март","апрель","май","июнь","июль","август","сентябрь","октябрь","ноябрь","декабрь"] %>
+        <% @books.each do |book| %>
+         <% datearray=book.date.split("-").map { |s| s.to_i } %>
+            <% if datearray[0]==@year %>
+                <% months[datearray[1]]=0%>
+            <% end %>
+        <% end %>
+         <% @books.each do |book| %>
+         <% datearray=book.date.split("-").map { |s| s.to_i } %>
+            <% if datearray[0]==@year %>
+                <% months[datearray[1]]+=1 %>
+            <% end %>
+        <% end %>
+          <%for i in 0..11 do %> 
+          <%if !(months[i+1]==nil)  %> 
+          <tr>
+            <td >> <%=month[i]%></td>
+            <td><%= months[i+1] %> </td>
+            <td></td>
+          </tr>
+          <%end %> 
+          <%end %> 
+        
+      </tbody> 
+      </table>
+  </div>
+</div>
